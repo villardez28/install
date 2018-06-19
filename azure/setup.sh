@@ -14,3 +14,9 @@ wget https://raw.githubusercontent.com/unchainio/install/master/azure/traefik.to
 sudo docker network create -d overlay proxy
 sudo docker volume create traefik-acme-data
 sudo docker stack deploy -c docker-compose.traefik.yml traefik
+
+## install initial adapters
+wget https://raw.githubusercontent.com/unchainio/install/master/azure/docker-compose.traefik.yml
+sudo docker stack deploy -c docker-compose.adapters.yml adapters
+
+echo "all done, you should now be able to access the adapter under <host>:80/apache"
